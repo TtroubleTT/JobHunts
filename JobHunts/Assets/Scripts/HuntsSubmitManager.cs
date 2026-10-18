@@ -8,8 +8,11 @@ public class HuntsSubmitManager : MonoBehaviour
 {
     [SerializeField] private GameObject huntsOptions;
     [SerializeField] private GameObject submitSection;
+    [SerializeField] private GameObject completedSection;
     [SerializeField] private TMP_Text activityType;
     [SerializeField] private TMP_Text pointsValue;
+    [SerializeField] private TMP_Text header;
+    [SerializeField] private TMP_InputField inputField;
     
     public string HuntName { get; set; }
     
@@ -19,13 +22,16 @@ public class HuntsSubmitManager : MonoBehaviour
     {
         huntsOptions.SetActive(true);
         submitSection.SetActive(false);
+        completedSection.SetActive(false);
     }
 
     public void OpenSubmitSection(string huntName)
     {
+        inputField.text = string.Empty;
         HuntName = huntName;
         huntsOptions.SetActive(false);
         submitSection.SetActive(true);
+        completedSection.SetActive(false);
         activityType.text = $"Activity Type - {huntName}";
     }
 
@@ -33,5 +39,13 @@ public class HuntsSubmitManager : MonoBehaviour
     {
         PointValue = points;
         pointsValue.text = $"+{points}";
+    }
+
+    public void OpenCompletedSection()
+    {
+        header.text = "Well played";
+        huntsOptions.SetActive(false);
+        submitSection.SetActive(false);
+        completedSection.SetActive(true);
     }
 }
