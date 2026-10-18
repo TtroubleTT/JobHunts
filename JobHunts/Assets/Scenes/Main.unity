@@ -1294,6 +1294,21 @@ MonoBehaviour:
   huntsPage: {fileID: 1110829466}
   ranksPage: {fileID: 2082728256}
   profilePage: {fileID: 1639369560}
+  homePageIcon: {fileID: 21300000, guid: cc420cb30a981b04b86118fd03d46841, type: 3}
+  tasksPageIcon: {fileID: 21300000, guid: ed2820bfb9e7ea243b56c592cc118a27, type: 3}
+  huntsPageIcon: {fileID: 21300000, guid: f6faa4ab5519f02459a87036439f7ae9, type: 3}
+  ranksPageIcon: {fileID: 21300000, guid: 39af89a7622b5e548adf5db62f1b2705, type: 3}
+  profilePageIcon: {fileID: 21300000, guid: 076fca49a4874c043bbe765a058b346c, type: 3}
+  homePageHighlightedIcon: {fileID: 21300000, guid: f7dae04d907f5bb4894bf78780989564, type: 3}
+  tasksPageHighlightedIcon: {fileID: 21300000, guid: ca873878bab371d42a36e29e0dd169bf, type: 3}
+  huntsPageHighlightedIcon: {fileID: 21300000, guid: 4fefaa46a7f01a94c80c2169a29e2a1a, type: 3}
+  ranksPageHighlightedIcon: {fileID: 21300000, guid: e4c60f1c5a1af484ba0ec5a05ae4a8e2, type: 3}
+  profilePageHighlightedIcon: {fileID: 21300000, guid: 8e135bdf3f246694faa0ca65b618f500, type: 3}
+  homePageImage: {fileID: 779951398}
+  tasksPageImage: {fileID: 570859466}
+  huntsPageImage: {fileID: 877955413}
+  ranksPageImage: {fileID: 62220570}
+  profilePageImage: {fileID: 1921806824}
 --- !u!1 &779951395
 GameObject:
   m_ObjectHideFlags: 0
@@ -1354,8 +1369,8 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
-    m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.80784315, g: 0.6313726, b: 0.7411765, a: 1}
+    m_PressedColor: {r: 0.7921569, g: 0.5411765, b: 0.70980394, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
