@@ -13,6 +13,8 @@ public class HuntsSubmitManager : MonoBehaviour
     [SerializeField] private TMP_Text pointsValue;
     [SerializeField] private TMP_Text header;
     [SerializeField] private TMP_InputField inputField;
+    [SerializeField] private TMP_Text completedPoints;
+    [SerializeField] private TMP_Text totalPoints;
     
     public string HuntName { get; set; }
     
@@ -43,6 +45,9 @@ public class HuntsSubmitManager : MonoBehaviour
 
     public void OpenCompletedSection()
     {
+        ScoreManager.Instance.CurrentScore += PointValue;
+        completedPoints.text = $"+{PointValue}";
+        totalPoints.text = $"{ScoreManager.Instance.CurrentScore}";
         header.text = "Well played";
         huntsOptions.SetActive(false);
         submitSection.SetActive(false);
