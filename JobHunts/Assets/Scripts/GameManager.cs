@@ -3,9 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ScoreManager : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
-    public static ScoreManager Instance { get; private set; }
+    public static GameManager Instance { get; private set; }
     
     public int CurrentScore { get; set; }
 
@@ -18,5 +18,10 @@ public class ScoreManager : MonoBehaviour
         }
 
         Instance = this;
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
     }
 }
