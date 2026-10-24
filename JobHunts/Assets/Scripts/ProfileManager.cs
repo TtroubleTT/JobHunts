@@ -6,10 +6,12 @@ using UnityEngine;
 
 public class ProfileManager : MonoBehaviour
 {
+    [SerializeField] private LeaderboardManager leaderboardManager;
     [SerializeField] private TMP_Text pointsText;
     [SerializeField] private GameObject descriptionEntry;
     [SerializeField] private TMP_InputField inputField;
     [SerializeField] private TMP_Text description;
+    [SerializeField] private TMP_Text rankText;
 
     private void OnEnable()
     {
@@ -21,6 +23,7 @@ public class ProfileManager : MonoBehaviour
         }
 
         pointsText.text = $"{GameManager.Instance.CurrentScore}";
+        rankText.text = $"Rank #{leaderboardManager.GetPlayerRank()}";
     }
 
     public void OpenDescriptionEntry()

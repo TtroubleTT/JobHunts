@@ -46,6 +46,25 @@ public class LeaderboardManager : MonoBehaviour
         
         UpdateScoreBoard(currentScore);
     }
+    
+    public int GetPlayerRank()
+    {
+        List<Entry> entries = new();
+        entries.AddRange(PlaceholderEntries);
+        entries.Add(new Entry(PlayerName, GameManager.Instance.CurrentScore));
+        List<Entry> orderedEntries = entries.OrderByDescending(x => x.Score).ToList();
+
+        for (int i = 0; i < orderedEntries.Count; i++)
+        {
+            Entry entry = orderedEntries[i];
+            if (entry.Name == PlayerName)
+            {
+                return i + 1;
+            }
+        }
+
+        return 0;
+    }
 
     private void UpdateScoreBoard(int currentScore)
     {
