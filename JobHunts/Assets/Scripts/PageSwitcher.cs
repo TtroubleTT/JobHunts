@@ -70,7 +70,7 @@ public class PageSwitcher : MonoBehaviour
     
     public void OpenRanksPage()
     {
-        OpenNewPage(ranksPage, "Leaderboard");
+        OpenNewPage(ranksPage, "Overall ranks");
         SetNewHighlightedIcon(ranksPageImage, ranksPageHighlightedIcon, ranksPageIcon);
     }
     
