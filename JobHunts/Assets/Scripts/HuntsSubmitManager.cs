@@ -52,5 +52,6 @@ public class HuntsSubmitManager : MonoBehaviour
         huntsOptions.SetActive(false);
         submitSection.SetActive(false);
         completedSection.SetActive(true);
+        GameManager.Instance.PlaySuccess();
     }
 }
