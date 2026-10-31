@@ -34,6 +34,7 @@ public class LeaderboardManager : MonoBehaviour
         new Entry("Taylor", 325),
         new Entry("Lauren", 175),
         new Entry("Amelia", 100),
+        new Entry("Kyle", 50),
     };
 
     public void OnEnable()
