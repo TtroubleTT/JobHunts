@@ -10,15 +10,21 @@ public class LeaderboardManager : MonoBehaviour
 {
     private const string PlayerName = "Malak";
 
+    [Header("Profile Icons")]
     [SerializeField] private Sprite playerIcon;
     [SerializeField] private Sprite taylorIcon;
     [SerializeField] private Sprite laurenIcon;
     [SerializeField] private Sprite ameliaIcon;
     [SerializeField] private Sprite kyleIcon;
 
+    [Header("Section Setups")]
     [SerializeField] private List<Image> profileIcons;
     [SerializeField] private List<TMP_Text> names;
     [SerializeField] private List<TMP_Text> scores;
+
+    [Header("Your Standing")] 
+    [SerializeField] private TMP_Text playerScore;
+    [SerializeField] private TMP_Text playerRank;
 
     public class Entry
     {
@@ -55,6 +61,7 @@ public class LeaderboardManager : MonoBehaviour
         }
         
         UpdateScoreBoard(currentScore);
+        UpdateYourStanding();
     }
     
     public int GetPlayerRank()
@@ -96,5 +103,11 @@ public class LeaderboardManager : MonoBehaviour
             Image profileIcon = profileIcons[i];
             profileIcon.sprite = entry.Icon;
         }
+    }
+
+    private void UpdateYourStanding()
+    {
+        playerScore.text = GameManager.Instance.CurrentScore.ToString();
+        playerRank.text = GetPlayerRank().ToString();
     }
 }
