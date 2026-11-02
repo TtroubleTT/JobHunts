@@ -28,9 +28,9 @@ public class DailyTaskManager : MonoBehaviour
     [SerializeField] private Sprite completedPoints50;
     [SerializeField] private Sprite completedPoints25;
     
-    public List<TaskLayout> Entries { get; private set; } = new();
+    public static List<TaskLayout> Entries { get; private set; } = new();
 
-    public List<GameObject> CurrentEntries { get; private set; } = new();
+    public static List<GameObject> CurrentEntries { get; private set; } = new();
 
     public class TaskLayout
     {
@@ -51,6 +51,20 @@ public class DailyTaskManager : MonoBehaviour
         public Sprite CompletedPointsIcon;
 
         public bool IsCompleted;
+    }
+
+    public static void CompleteTask(HuntsSubmitManager.ActivityType completedActivity)
+    {
+        foreach (TaskLayout task in Entries)
+        {
+            if (task.ActivityType != completedActivity)
+            {
+                continue;
+            }
+
+            task.IsCompleted = true;
+            break;
+        }
     }
 
     public void Awake()

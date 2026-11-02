@@ -50,24 +50,28 @@ public class HuntsSubmitManager : MonoBehaviour
     {
         OpenSubmitSection(ActivityType.ApplyJob);
         UpdatePoints(100);
+        DailyTaskManager.CompleteTask(ActivityType.ApplyJob);
     }
 
     public void SubmitPortfolio()
     {
         OpenSubmitSection(ActivityType.PortfolioUpdate);
         UpdatePoints(50);
+        DailyTaskManager.CompleteTask(ActivityType.PortfolioUpdate);
     }
 
     public void SubmitCoffee()
     {
         OpenSubmitSection(ActivityType.CoffeeChat);
         UpdatePoints(75);
+        DailyTaskManager.CompleteTask(ActivityType.CoffeeChat);
     }
 
     public void SubmitLinkedIn()
     {
         OpenSubmitSection(ActivityType.LinkedInConnection);
         UpdatePoints(25);
+        DailyTaskManager.CompleteTask(ActivityType.LinkedInConnection);
     }
 
     public void OpenSubmitSection(ActivityType activity)

@@ -34,8 +34,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -53.6574, y: -10.052}
-  m_SizeDelta: {x: 46.6852, y: 12.104}
+  m_AnchoredPosition: {x: -50.9, y: -10.052}
+  m_SizeDelta: {x: 54, y: 14}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &318826610337431819
 CanvasRenderer:
@@ -379,6 +379,7 @@ MonoBehaviour:
   activityIcon: {fileID: 2147110014910218309}
   pointsIcon: {fileID: 5178218122415313602}
   completedPointsIcon: {fileID: 8293845454692439412}
+  button: {fileID: 980579706597880365}
 --- !u!1 &6010335550349977923
 GameObject:
   m_ObjectHideFlags: 0
@@ -444,7 +445,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Apply to a Job
+  m_text: Job Application
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -547,8 +548,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 106.7, y: 0}
-  m_SizeDelta: {x: 42, y: 24}
+  m_AnchoredPosition: {x: 110.2, y: -1.4}
+  m_SizeDelta: {x: 32.2817, y: 18.447}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7840854538879121561
 CanvasRenderer:
