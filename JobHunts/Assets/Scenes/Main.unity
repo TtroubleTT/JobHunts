@@ -3033,7 +3033,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &567478654
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5948,7 +5948,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 667384148}
         m_TargetAssemblyTypeName: PageSwitcher, Assembly-CSharp
-        m_MethodName: OpenHuntsPage
+        m_MethodName: OpenTasksPage
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5960,7 +5960,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1330184550}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: PlayButtonClick
+        m_MethodName: PlayChangePage
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
