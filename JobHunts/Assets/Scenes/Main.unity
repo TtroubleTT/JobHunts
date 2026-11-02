@@ -7170,18 +7170,6 @@ MonoBehaviour:
           m_StringArgument: Portfolio Update
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1464670358}
-        m_TargetAssemblyTypeName: HuntsSubmitManager, Assembly-CSharp
-        m_MethodName: UpdatePoints
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 50
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1330184550}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: PlayButtonClick
@@ -7932,18 +7920,6 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Job Application
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1464670358}
-        m_TargetAssemblyTypeName: HuntsSubmitManager, Assembly-CSharp
-        m_MethodName: UpdatePoints
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 100
-          m_FloatArgument: 0
-          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1330184550}
@@ -11322,18 +11298,6 @@ MonoBehaviour:
           m_StringArgument: LinkedIn Connection
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1464670358}
-        m_TargetAssemblyTypeName: HuntsSubmitManager, Assembly-CSharp
-        m_MethodName: UpdatePoints
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 25
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1330184550}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: PlayButtonClick
@@ -12088,18 +12052,6 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Coffee Chat
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1464670358}
-        m_TargetAssemblyTypeName: HuntsSubmitManager, Assembly-CSharp
-        m_MethodName: UpdatePoints
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 75
-          m_FloatArgument: 0
-          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1330184550}
@@ -13014,6 +12966,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   taskPrefab: {fileID: 3527732050177980878, guid: 6c0afed9233bec849a6d17d18dab3134, type: 3}
+  completedActivityIcon: {fileID: 21300000, guid: 52ab8a52433868341a6ad06ccea36214, type: 3}
   applyToJobIcon: {fileID: 21300000, guid: bc6bc6b2a386070458bc6bcaa106f3ac, type: 3}
   portfolioIcon: {fileID: 21300000, guid: 728f79e56f2c46147b0714a03ab41af9, type: 3}
   coffeeIcon: {fileID: 21300000, guid: 877de5aea9ac3f0448c7705d32ddd67b, type: 3}
@@ -13022,6 +12975,10 @@ MonoBehaviour:
   points75Icon: {fileID: 21300000, guid: b174b3403e870d84189b672403ab143d, type: 3}
   points50Icon: {fileID: 21300000, guid: 33bab2e42ca15d54a86a0d225358c064, type: 3}
   points25Icon: {fileID: 21300000, guid: f84de6ab17241a1448f09a833fab1d4f, type: 3}
+  completedPoints100: {fileID: 21300000, guid: 8b1168495f54ee44c8ebd960c48a0721, type: 3}
+  completedPoints75: {fileID: 21300000, guid: f72b1eec8ac7c9649aa0ce8fe09936c0, type: 3}
+  completedPoints50: {fileID: 21300000, guid: 6fc3fe3d6efd88b4584019ccb8564618, type: 3}
+  completedPoints25: {fileID: 21300000, guid: f97a4e8a4c3dfec41bdc008230b63bab, type: 3}
 --- !u!1 &2137658934
 GameObject:
   m_ObjectHideFlags: 0

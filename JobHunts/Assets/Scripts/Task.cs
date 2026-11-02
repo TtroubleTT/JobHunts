@@ -10,6 +10,7 @@ public class Task : MonoBehaviour
     [SerializeField] private TMP_Text activityName;
     [SerializeField] private Image activityIcon;
     [SerializeField] private Image pointsIcon;
+    [SerializeField] private Image completedPointsIcon;
     
     public HuntsSubmitManager.ActivityType ActivityType { get; private set; }
 
@@ -19,6 +20,20 @@ public class Task : MonoBehaviour
         activityName.text = HuntsSubmitManager.EnumToString(activityType);
         activityIcon.sprite = chosenActivityIcon;
         pointsIcon.sprite = chosenPointsIcon;
+        
+        completedPointsIcon.gameObject.SetActive(false);
+        pointsIcon.gameObject.SetActive(true);
+    }
+
+    public void SetUpCompleted(HuntsSubmitManager.ActivityType activityType, Sprite completedIcon, Sprite chosenCompletedPoints)
+    {
+        ActivityType = activityType;
+        activityName.text = HuntsSubmitManager.EnumToString(activityType);
+        activityIcon.sprite = completedIcon;
+        completedPointsIcon.sprite = chosenCompletedPoints;
+        
+        completedPointsIcon.gameObject.SetActive(true);
+        pointsIcon.gameObject.SetActive(false);
     }
 
     public void LogActivity()
