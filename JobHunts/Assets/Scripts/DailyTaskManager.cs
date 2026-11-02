@@ -9,6 +9,7 @@ public class DailyTaskManager : MonoBehaviour
 {
     [SerializeField] private GameObject taskPrefab;
     [SerializeField] private Sprite completedActivityIcon;
+    [SerializeField] private GameObject completedLine;
     
     [Header("Activity Icons")] 
     [SerializeField] private Sprite applyToJobIcon;
@@ -88,6 +89,8 @@ public class DailyTaskManager : MonoBehaviour
         }
         
         CurrentEntries.Clear();
+        completedLine.SetActive(false);
+        bool setUpCompleted = false;
 
         Entries = Entries.OrderBy(x => x.IsCompleted).ToList();
         foreach (TaskLayout layout in Entries)
@@ -106,6 +109,12 @@ public class DailyTaskManager : MonoBehaviour
             else
             {
                 task.SetUpCompleted(layout.ActivityType, completedActivityIcon, layout.CompletedPointsIcon);
+                if (!setUpCompleted)
+                {
+                    setUpCompleted = true;
+                    completedLine.SetActive(true);
+                    completedLine.transform.SetSiblingIndex(gameObj.transform.GetSiblingIndex() - 1);
+                }
             }
 
             CurrentEntries.Add(gameObj);
