@@ -81,7 +81,7 @@ public class HuntsSubmitManager : MonoBehaviour
         GameManager.Instance.PlaySuccess();
     }
 
-    public string EnumToString(ActivityType activity)
+    public static string EnumToString(ActivityType activity)
     {
         if (activity == ActivityType.ApplyJob)
         {
