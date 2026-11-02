@@ -39,6 +39,8 @@ public class PageSwitcher : MonoBehaviour
     public Sprite NonHighlightedCurrentIcon { get; set; }
     
     public Image CurrentImage { get; set; }
+    
+    public static PageSwitcher Instance { get; private set; }
 
     private void Awake()
     {
@@ -48,6 +50,14 @@ public class PageSwitcher : MonoBehaviour
         txt.text = "Job Hunts";
         SetActiveHomePageOnly();
         SetActiveHomePageImageOnly();
+        
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
     }
 
     public void OpenHomePage()

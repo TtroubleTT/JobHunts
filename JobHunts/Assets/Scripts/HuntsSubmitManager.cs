@@ -25,6 +25,19 @@ public class HuntsSubmitManager : MonoBehaviour
     [SerializeField] private TMP_Text totalPoints;
     
     public int PointValue { get; set; }
+    
+    public static HuntsSubmitManager Instance { get; private set; }
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+    }
 
     private void OnEnable()
     {
@@ -36,21 +49,25 @@ public class HuntsSubmitManager : MonoBehaviour
     public void SubmitJob()
     {
         OpenSubmitSection(ActivityType.ApplyJob);
+        UpdatePoints(100);
     }
 
     public void SubmitPortfolio()
     {
         OpenSubmitSection(ActivityType.PortfolioUpdate);
+        UpdatePoints(50);
     }
 
     public void SubmitCoffee()
     {
         OpenSubmitSection(ActivityType.CoffeeChat);
+        UpdatePoints(75);
     }
 
     public void SubmitLinkedIn()
     {
         OpenSubmitSection(ActivityType.LinkedInConnection);
+        UpdatePoints(25);
     }
 
     public void OpenSubmitSection(ActivityType activity)

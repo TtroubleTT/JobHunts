@@ -55,7 +55,7 @@ public class DailyTaskManager : MonoBehaviour
                 continue;
             }
             
-            task.SetUpTask(HuntsSubmitManager.EnumToString(layout.ActivityType), layout.ActivityIcon, layout.PointsIcon);
+            task.SetUpTask(layout.ActivityType, layout.ActivityIcon, layout.PointsIcon);
             CurrentEntries.Add(gameObj);
         }
     }
