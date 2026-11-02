@@ -6,6 +6,14 @@ using UnityEngine;
 
 public class HuntsSubmitManager : MonoBehaviour
 {
+    public enum ActivityType
+    {
+        ApplyJob,
+        PortfolioUpdate,
+        CoffeeChat,
+        LinkedInConnection,
+    }
+    
     [SerializeField] private GameObject huntsOptions;
     [SerializeField] private GameObject submitSection;
     [SerializeField] private GameObject completedSection;
@@ -16,8 +24,6 @@ public class HuntsSubmitManager : MonoBehaviour
     [SerializeField] private TMP_Text completedPoints;
     [SerializeField] private TMP_Text totalPoints;
     
-    public string HuntName { get; set; }
-    
     public int PointValue { get; set; }
 
     private void OnEnable()
@@ -27,10 +33,30 @@ public class HuntsSubmitManager : MonoBehaviour
         completedSection.SetActive(false);
     }
 
-    public void OpenSubmitSection(string huntName)
+    public void SubmitJob()
     {
+        OpenSubmitSection(ActivityType.ApplyJob);
+    }
+
+    public void SubmitPortfolio()
+    {
+        OpenSubmitSection(ActivityType.PortfolioUpdate);
+    }
+
+    public void SubmitCoffee()
+    {
+        OpenSubmitSection(ActivityType.CoffeeChat);
+    }
+
+    public void SubmitLinkedIn()
+    {
+        OpenSubmitSection(ActivityType.LinkedInConnection);
+    }
+
+    public void OpenSubmitSection(ActivityType activity)
+    {
+        string huntName = EnumToString(activity);
         inputField.text = string.Empty;
-        HuntName = huntName;
         huntsOptions.SetActive(false);
         submitSection.SetActive(true);
         completedSection.SetActive(false);
@@ -53,5 +79,30 @@ public class HuntsSubmitManager : MonoBehaviour
         submitSection.SetActive(false);
         completedSection.SetActive(true);
         GameManager.Instance.PlaySuccess();
+    }
+
+    public string EnumToString(ActivityType activity)
+    {
+        if (activity == ActivityType.ApplyJob)
+        {
+            return "Job Application";
+        }
+
+        if (activity == ActivityType.PortfolioUpdate)
+        {
+            return "Portfolio Update";
+        }
+
+        if (activity == ActivityType.CoffeeChat)
+        {
+            return "Coffee Chat";
+        }
+
+        if (activity == ActivityType.LinkedInConnection)
+        {
+            return "LinkedIn Connection";
+        }
+
+        return "Taylor Messed Up";
     }
 }
