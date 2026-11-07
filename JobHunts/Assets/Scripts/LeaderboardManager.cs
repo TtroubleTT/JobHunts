@@ -8,8 +8,6 @@ using UnityEngine.UI;
 
 public class LeaderboardManager : MonoBehaviour
 {
-    private const string PlayerName = "Malak";
-
     [Header("Profile Icons")]
     [SerializeField] private Sprite playerIcon;
     [SerializeField] private Sprite taylorIcon;
@@ -68,13 +66,13 @@ public class LeaderboardManager : MonoBehaviour
     {
         List<Entry> entries = new();
         entries.AddRange(PlaceholderEntries);
-        entries.Add(new Entry(PlayerName, GameManager.Instance.CurrentScore, playerIcon));
+        entries.Add(new Entry(SaveManager.Instance.PlayerName, GameManager.Instance.CurrentScore, playerIcon));
         List<Entry> orderedEntries = entries.OrderByDescending(x => x.Score).ToList();
 
         for (int i = 0; i < orderedEntries.Count; i++)
         {
             Entry entry = orderedEntries[i];
-            if (entry.Name == PlayerName)
+            if (entry.Name == SaveManager.Instance.PlayerName)
             {
                 return i + 1;
             }
@@ -87,7 +85,7 @@ public class LeaderboardManager : MonoBehaviour
     {
         List<Entry> entries = new();
         entries.AddRange(PlaceholderEntries);
-        entries.Add(new Entry(PlayerName, currentScore, playerIcon));
+        entries.Add(new Entry(SaveManager.Instance.PlayerName, currentScore, playerIcon));
         List<Entry> orderedEntries = entries.OrderByDescending(x => x.Score).ToList();
 
         for (int i = 0; i < orderedEntries.Count; i++)
