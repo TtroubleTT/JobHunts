@@ -26,6 +26,8 @@ public class HuntsSubmitManager : MonoBehaviour
     
     public int PointValue { get; set; }
     
+    public ActivityType Activity { get; set; }
+    
     public static HuntsSubmitManager Instance { get; private set; }
 
     private void Awake()
@@ -50,28 +52,28 @@ public class HuntsSubmitManager : MonoBehaviour
     {
         OpenSubmitSection(ActivityType.ApplyJob);
         UpdatePoints(100);
-        DailyTaskManager.CompleteTask(ActivityType.ApplyJob);
+        Activity = ActivityType.ApplyJob;
     }
 
     public void SubmitPortfolio()
     {
         OpenSubmitSection(ActivityType.PortfolioUpdate);
         UpdatePoints(50);
-        DailyTaskManager.CompleteTask(ActivityType.PortfolioUpdate);
+        Activity = ActivityType.PortfolioUpdate;
     }
 
     public void SubmitCoffee()
     {
         OpenSubmitSection(ActivityType.CoffeeChat);
         UpdatePoints(75);
-        DailyTaskManager.CompleteTask(ActivityType.CoffeeChat);
+        Activity = ActivityType.CoffeeChat;
     }
 
     public void SubmitLinkedIn()
     {
         OpenSubmitSection(ActivityType.LinkedInConnection);
         UpdatePoints(25);
-        DailyTaskManager.CompleteTask(ActivityType.LinkedInConnection);
+        Activity = ActivityType.LinkedInConnection;
     }
 
     public void OpenSubmitSection(ActivityType activity)
@@ -100,6 +102,7 @@ public class HuntsSubmitManager : MonoBehaviour
         submitSection.SetActive(false);
         completedSection.SetActive(true);
         GameManager.Instance.PlaySuccess();
+        DailyTaskManager.CompleteTask(Activity);
     }
 
     public static string EnumToString(ActivityType activity)

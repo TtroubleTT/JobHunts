@@ -12,6 +12,8 @@ public class PageSwitcher : MonoBehaviour
     [SerializeField] private GameObject huntsPage;
     [SerializeField] private GameObject ranksPage;
     [SerializeField] private GameObject profilePage;
+    [SerializeField] private GameObject signInPage;
+    [SerializeField] private GameObject navBar;
 
     [Header("Normal Icons")]
     [SerializeField] private Sprite homePageIcon;
@@ -44,12 +46,9 @@ public class PageSwitcher : MonoBehaviour
 
     private void Awake()
     {
-        CurrentPage = homePage;
-        NonHighlightedCurrentIcon = homePageIcon;
-        CurrentImage = homePageImage;
-        txt.text = "Job Hunts";
-        SetActiveHomePageOnly();
-        SetActiveHomePageImageOnly();
+        CurrentPage = signInPage;
+        txt.text = "Sign In";
+        SetActiveSignInPageOnly();
         
         if (Instance != null && Instance != this)
         {
@@ -58,6 +57,31 @@ public class PageSwitcher : MonoBehaviour
         }
 
         Instance = this;
+    }
+
+    public void SetActiveHomePageOnly()
+    {
+        CurrentPage = homePage;
+        NonHighlightedCurrentIcon = homePageIcon;
+        CurrentImage = homePageImage;
+        txt.text = "Job Hunts";
+
+        homePage.SetActive(true);
+        tasksPage.SetActive(false);
+        huntsPage.SetActive(false);
+        ranksPage.SetActive(false);
+        profilePage.SetActive(false);
+        signInPage.SetActive(false);
+    }
+
+    public void SetActiveHomePageImageOnly()
+    {
+        navBar.SetActive(true);
+        homePageImage.sprite = homePageHighlightedIcon;
+        tasksPageImage.sprite = tasksPageIcon;
+        huntsPageImage.sprite = huntsPageIcon;
+        ranksPageImage.sprite = ranksPageIcon;
+        profilePageImage.sprite = profilePageIcon;
     }
 
     public void OpenHomePage()
@@ -106,21 +130,14 @@ public class PageSwitcher : MonoBehaviour
         NonHighlightedCurrentIcon = normalIcon;
     }
 
-    private void SetActiveHomePageOnly()
+    private void SetActiveSignInPageOnly()
     {
-        homePage.SetActive(true);
+        signInPage.SetActive(true);
+        homePage.SetActive(false);
         tasksPage.SetActive(false);
         huntsPage.SetActive(false);
         ranksPage.SetActive(false);
         profilePage.SetActive(false);
-    }
-
-    private void SetActiveHomePageImageOnly()
-    {
-        homePageImage.sprite = homePageHighlightedIcon;
-        tasksPageImage.sprite = tasksPageIcon;
-        huntsPageImage.sprite = huntsPageIcon;
-        ranksPageImage.sprite = ranksPageIcon;
-        profilePageImage.sprite = profilePageIcon;
+        navBar.SetActive(false);
     }
 }
