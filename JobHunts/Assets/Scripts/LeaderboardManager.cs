@@ -23,6 +23,7 @@ public class LeaderboardManager : MonoBehaviour
     [Header("Your Standing")] 
     [SerializeField] private TMP_Text playerScore;
     [SerializeField] private TMP_Text playerRank;
+    [SerializeField] private TMP_Text userName;
 
     public class Entry
     {
@@ -107,5 +108,6 @@ public class LeaderboardManager : MonoBehaviour
     {
         playerScore.text = GameManager.Instance.CurrentScore.ToString();
         playerRank.text = GetPlayerRank().ToString();
+        userName.text = $"{SaveManager.Instance.PlayerName} - You";
     }
 }

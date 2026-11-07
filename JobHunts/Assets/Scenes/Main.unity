@@ -11235,7 +11235,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1464670357
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12552,7 +12552,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1639369561
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12594,6 +12594,7 @@ MonoBehaviour:
   inputField: {fileID: 713928696}
   description: {fileID: 1283875397}
   rankText: {fileID: 1639058126}
+  userNameText: {fileID: 347942351}
 --- !u!1 &1650904182
 GameObject:
   m_ObjectHideFlags: 0
@@ -15860,6 +15861,7 @@ MonoBehaviour:
   - {fileID: 1582374538}
   playerScore: {fileID: 1327368967}
   playerRank: {fileID: 76293213}
+  userName: {fileID: 865143253}
 --- !u!1 &2086709814
 GameObject:
   m_ObjectHideFlags: 0

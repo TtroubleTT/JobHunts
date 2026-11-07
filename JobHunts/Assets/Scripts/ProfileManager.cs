@@ -12,6 +12,7 @@ public class ProfileManager : MonoBehaviour
     [SerializeField] private TMP_InputField inputField;
     [SerializeField] private TMP_Text description;
     [SerializeField] private TMP_Text rankText;
+    [SerializeField] private TMP_Text userNameText;
 
     private void OnEnable()
     {
@@ -22,6 +23,7 @@ public class ProfileManager : MonoBehaviour
             return;
         }
 
+        userNameText.text = SaveManager.Instance.PlayerName;
         pointsText.text = $"{GameManager.Instance.CurrentScore}";
         rankText.text = $"Rank #{leaderboardManager.GetPlayerRank()}";
     }
