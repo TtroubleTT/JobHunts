@@ -159,5 +159,9 @@ public class SaveManager : MonoBehaviour
         {
             GameManager.Instance.CurrentScore = scoreNumber;
         }
+        else
+        {
+            GameManager.Instance.CurrentScore = 0;
+        }
     }
 }
