@@ -13,6 +13,7 @@ public class PageSwitcher : MonoBehaviour
     [SerializeField] private GameObject ranksPage;
     [SerializeField] private GameObject profilePage;
     [SerializeField] private GameObject signInPage;
+    [SerializeField] private GameObject signOutPage;
     [SerializeField] private GameObject navBar;
 
     [Header("Normal Icons")]
@@ -58,6 +59,31 @@ public class PageSwitcher : MonoBehaviour
 
         Instance = this;
     }
+    
+    public void SetActiveSignInPageOnly()
+    {
+        signInPage.SetActive(true);
+        signOutPage.SetActive(false);
+        homePage.SetActive(false);
+        tasksPage.SetActive(false);
+        huntsPage.SetActive(false);
+        ranksPage.SetActive(false);
+        profilePage.SetActive(false);
+        navBar.SetActive(false);
+        SaveManager.Instance.ClearSignInInfo();
+    }
+
+    public void SetActiveSignOutPageOnly()
+    {
+        signOutPage.SetActive(true);
+        signInPage.SetActive(false);
+        homePage.SetActive(false);
+        tasksPage.SetActive(false);
+        huntsPage.SetActive(false);
+        ranksPage.SetActive(false);
+        profilePage.SetActive(false);
+        navBar.SetActive(false);
+    }
 
     public void SetActiveHomePageOnly()
     {
@@ -72,6 +98,7 @@ public class PageSwitcher : MonoBehaviour
         ranksPage.SetActive(false);
         profilePage.SetActive(false);
         signInPage.SetActive(false);
+        signOutPage.SetActive(false);
     }
 
     public void SetActiveHomePageImageOnly()
@@ -128,16 +155,5 @@ public class PageSwitcher : MonoBehaviour
         newImage.sprite = highlightedIcon;
         CurrentImage = newImage;
         NonHighlightedCurrentIcon = normalIcon;
-    }
-
-    private void SetActiveSignInPageOnly()
-    {
-        signInPage.SetActive(true);
-        homePage.SetActive(false);
-        tasksPage.SetActive(false);
-        huntsPage.SetActive(false);
-        ranksPage.SetActive(false);
-        profilePage.SetActive(false);
-        navBar.SetActive(false);
     }
 }

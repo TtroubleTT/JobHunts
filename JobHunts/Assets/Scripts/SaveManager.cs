@@ -26,7 +26,7 @@ public class SaveManager : MonoBehaviour
         Instance = this;
     }
 
-    private void OnEnable()
+    public void ClearSignInInfo()
     {
         usernameInput.text = string.Empty;
         passwordInput.text = string.Empty;

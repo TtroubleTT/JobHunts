@@ -23,6 +23,7 @@ public class HuntsSubmitManager : MonoBehaviour
     [SerializeField] private TMP_InputField inputField;
     [SerializeField] private TMP_Text completedPoints;
     [SerializeField] private TMP_Text totalPoints;
+    [SerializeField] private GameObject signOutButton;
     
     public int PointValue { get; set; }
     
@@ -46,6 +47,7 @@ public class HuntsSubmitManager : MonoBehaviour
         huntsOptions.SetActive(true);
         submitSection.SetActive(false);
         completedSection.SetActive(false);
+        signOutButton.SetActive(true);
     }
 
     public void SubmitJob()
@@ -80,6 +82,7 @@ public class HuntsSubmitManager : MonoBehaviour
     {
         string huntName = EnumToString(activity);
         inputField.text = string.Empty;
+        signOutButton.SetActive(false);
         huntsOptions.SetActive(false);
         submitSection.SetActive(true);
         completedSection.SetActive(false);
@@ -98,6 +101,7 @@ public class HuntsSubmitManager : MonoBehaviour
         completedPoints.text = $"+{PointValue}";
         totalPoints.text = $"{GameManager.Instance.CurrentScore}";
         header.text = "Well played";
+        signOutButton.SetActive(false);
         huntsOptions.SetActive(false);
         submitSection.SetActive(false);
         completedSection.SetActive(true);
