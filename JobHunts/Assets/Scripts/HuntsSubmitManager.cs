@@ -98,6 +98,7 @@ public class HuntsSubmitManager : MonoBehaviour
     public void OpenCompletedSection()
     {
         GameManager.Instance.CurrentScore += PointValue;
+        SaveManager.Instance.SaveValueByUserName(SaveManager.Score, SaveManager.Instance.PlayerName, GameManager.Instance.CurrentScore.ToString());
         completedPoints.text = $"+{PointValue}";
         totalPoints.text = $"{GameManager.Instance.CurrentScore}";
         header.text = "Well played";

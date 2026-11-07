@@ -7,6 +7,7 @@ public class SaveManager : MonoBehaviour
 {
     public const string PasswordKey = "Password";
     public const string ProfileDescription = "ProfileDescription";
+    public const string Score = "Score";
     
     [SerializeField] private TMP_InputField usernameInput;
     [SerializeField] private TMP_InputField passwordInput;
@@ -56,10 +57,8 @@ public class SaveManager : MonoBehaviour
         if (properPassword == string.Empty)
         {
             SaveValueByUserName(PasswordKey, usernameInput.text, passwordInput.text);
-            PageSwitcher.Instance.SetActiveHomePageOnly();
-            PageSwitcher.Instance.SetActiveHomePageImageOnly();
-            PlayerName = usernameInput.text;
-            GameManager.Instance.PlayChangePage();
+            GoToHomePage();
+            UpdateStats(usernameInput.text);
             return;
         }
 
@@ -70,11 +69,9 @@ public class SaveManager : MonoBehaviour
             GameManager.Instance.PlayButtonClick();
             return;
         }
-        
-        PageSwitcher.Instance.SetActiveHomePageOnly();
-        PageSwitcher.Instance.SetActiveHomePageImageOnly();
-        PlayerName = usernameInput.text;
-        GameManager.Instance.PlayChangePage();
+
+        GoToHomePage();
+        UpdateStats(usernameInput.text);
     }
 
     public string GetValueByUserName(string key, string userName)
@@ -127,5 +124,22 @@ public class SaveManager : MonoBehaviour
 
         PlayerPrefs.SetString(key, string.Join(", ", entries));
         PlayerPrefs.Save();
+    }
+
+    private void GoToHomePage()
+    {
+        PageSwitcher.Instance.SetActiveHomePageOnly();
+        PageSwitcher.Instance.SetActiveHomePageImageOnly();
+        PlayerName = usernameInput.text;
+        GameManager.Instance.PlayChangePage();
+    }
+
+    private void UpdateStats(string userName)
+    {
+        string score = GetValueByUserName(Score, userName);
+        if (score != string.Empty && int.TryParse(score, out int scoreNumber))
+        {
+            GameManager.Instance.CurrentScore = scoreNumber;
+        }
     }
 }
