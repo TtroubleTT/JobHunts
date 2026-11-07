@@ -10,23 +10,20 @@ public class LeaderboardManager : MonoBehaviour
 {
     private List<Entry> placeholderEntries;
     
-    [Header("Profile Icons")] [SerializeField]
-    private Sprite playerIcon;
-
+    [Header("Profile Icons")] 
+    [SerializeField] private Sprite playerIcon;
     [SerializeField] private Sprite taylorIcon;
     [SerializeField] private Sprite laurenIcon;
     [SerializeField] private Sprite ameliaIcon;
     [SerializeField] private Sprite kyleIcon;
 
-    [Header("Section Setups")] [SerializeField]
-    private List<Image> profileIcons;
-
+    [Header("Section Setups")] 
+    [SerializeField] private List<Image> profileIcons;
     [SerializeField] private List<TMP_Text> names;
     [SerializeField] private List<TMP_Text> scores;
 
-    [Header("Your Standing")] [SerializeField]
-    private TMP_Text playerScore;
-
+    [Header("Your Standing")] 
+    [SerializeField] private TMP_Text playerScore;
     [SerializeField] private TMP_Text playerRank;
     [SerializeField] private TMP_Text userName;
 
