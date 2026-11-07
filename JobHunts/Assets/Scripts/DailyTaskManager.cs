@@ -88,6 +88,14 @@ public class DailyTaskManager : MonoBehaviour
         }
     }
 
+    public void ResetTasks()
+    {
+        foreach (TaskLayout task in Entries)
+        {
+            task.IsCompleted = false;
+        }
+    }
+
     private void Awake()
     {
         if (Instance != null && Instance != this)

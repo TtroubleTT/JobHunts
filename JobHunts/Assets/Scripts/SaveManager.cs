@@ -14,6 +14,7 @@ public class SaveManager : MonoBehaviour
     [SerializeField] private TMP_InputField usernameInput;
     [SerializeField] private TMP_InputField passwordInput;
     [SerializeField] private TMP_Text invalid;
+    [SerializeField] private DailyTaskManager dailyTaskManager;
     
     public static SaveManager Instance { get; private set; }
     
@@ -163,5 +164,7 @@ public class SaveManager : MonoBehaviour
         {
             GameManager.Instance.CurrentScore = 0;
         }
+        
+        dailyTaskManager.ResetTasks();
     }
 }
