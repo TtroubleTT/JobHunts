@@ -728,7 +728,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 2
+  m_text: 5
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -12925,7 +12925,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1639369561
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16352,7 +16352,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2082728257
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16387,11 +16387,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 055f2150fe5fed74286093c5426a14d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerIcon: {fileID: 21300000, guid: 009216937b4035749bc03be2a37d306d, type: 3}
-  taylorIcon: {fileID: 21300000, guid: baf3dc81826acd94a9c37826ac694223, type: 3}
-  laurenIcon: {fileID: 21300000, guid: 01dccdb40fae1f84ab3ef2107556e697, type: 3}
-  ameliaIcon: {fileID: 21300000, guid: b04d1a2a1b8af344b94de35e4104f8ee, type: 3}
-  kyleIcon: {fileID: 21300000, guid: 6f8c1a2731cb2f84e96c65757be9a3d8, type: 3}
   profileIcons:
   - {fileID: 1201189011}
   - {fileID: 137332261}
@@ -16413,6 +16408,7 @@ MonoBehaviour:
   playerScore: {fileID: 1327368967}
   playerRank: {fileID: 76293213}
   userName: {fileID: 865143253}
+  playerIcon: {fileID: 0}
 --- !u!1 &2086709814
 GameObject:
   m_ObjectHideFlags: 0

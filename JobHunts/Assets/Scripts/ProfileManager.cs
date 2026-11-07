@@ -55,7 +55,7 @@ public class ProfileManager : MonoBehaviour
         }
 
         description.text = savedDescription;
-        profileIcon.sprite = IconManager.Instance.GetProfileIcon();
+        profileIcon.sprite = IconManager.Instance.GetProfileIcon(SaveManager.Instance.PlayerName);
     }
 
     public void OpenDescriptionEntry()
@@ -89,7 +89,7 @@ public class ProfileManager : MonoBehaviour
     public void CloseChooseIcon()
     {
         iconChoosing.SetActive(false);
-        profileIcon.sprite = IconManager.Instance.GetProfileIcon();
+        profileIcon.sprite = IconManager.Instance.GetProfileIcon(SaveManager.Instance.PlayerName);
 
         foreach (Transform child in iconLayoutGroup)
         {

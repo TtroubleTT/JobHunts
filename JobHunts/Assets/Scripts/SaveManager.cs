@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
@@ -73,6 +74,22 @@ public class SaveManager : MonoBehaviour
 
         GoToHomePage();
         UpdateStats(usernameInput.text);
+    }
+
+    public List<string> GetAllUserNames()
+    {
+        string everything = PlayerPrefs.GetString(PasswordKey, string.Empty);
+        string[] entries = everything.Split("), ");
+        List<string> userNames = new();
+        
+        foreach (string entry in entries)
+        {
+            string cleaned = entry.Replace("(", "").Replace(")", "");
+            string[] parts = cleaned.Split(", ");
+            userNames.Add(parts[0]);
+        }
+
+        return userNames;
     }
 
     public string GetValueByUserName(string key, string userName)

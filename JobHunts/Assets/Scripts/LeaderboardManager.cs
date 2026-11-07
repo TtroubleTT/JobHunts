@@ -8,15 +8,6 @@ using UnityEngine.UI;
 
 public class LeaderboardManager : MonoBehaviour
 {
-    private List<Entry> placeholderEntries;
-    
-    [Header("Profile Icons")] 
-    [SerializeField] private Sprite playerIcon;
-    [SerializeField] private Sprite taylorIcon;
-    [SerializeField] private Sprite laurenIcon;
-    [SerializeField] private Sprite ameliaIcon;
-    [SerializeField] private Sprite kyleIcon;
-
     [Header("Section Setups")] 
     [SerializeField] private List<Image> profileIcons;
     [SerializeField] private List<TMP_Text> names;
@@ -26,6 +17,7 @@ public class LeaderboardManager : MonoBehaviour
     [SerializeField] private TMP_Text playerScore;
     [SerializeField] private TMP_Text playerRank;
     [SerializeField] private TMP_Text userName;
+    [SerializeField] private Image playerIcon;
 
     public class Entry
     {
@@ -43,43 +35,15 @@ public class LeaderboardManager : MonoBehaviour
         public int Score;
     }
 
-    public List<Entry> PlaceholderEntries
-    {
-        get
-        {
-            if (placeholderEntries != null)
-            {
-                return placeholderEntries;
-            }
-
-            placeholderEntries = new List<Entry>();
-            placeholderEntries.Add(new Entry("Taylor", 325, taylorIcon));
-            placeholderEntries.Add(new Entry("Lauren", 175, laurenIcon));
-            placeholderEntries.Add(new Entry("Amelia", 100, ameliaIcon));
-            placeholderEntries.Add(new Entry("Kyle", 50, kyleIcon));
-            return placeholderEntries;
-        }
-    }
-
     public void OnEnable()
     {
-        int currentScore = 0;
-        if (GameManager.Instance != null)
-        {
-            currentScore = GameManager.Instance.CurrentScore;
-        }
-        
-        UpdateScoreBoard(currentScore);
+        UpdateScoreBoard();
         UpdateYourStanding();
     }
     
     public int GetPlayerRank()
     {
-        List<Entry> entries = new();
-        entries.AddRange(PlaceholderEntries);
-        entries.Add(new Entry(SaveManager.Instance.PlayerName, GameManager.Instance.CurrentScore, playerIcon));
-        List<Entry> orderedEntries = entries.OrderByDescending(x => x.Score).ToList();
-
+        List<Entry> orderedEntries = GetOrderedEntries();
         for (int i = 0; i < orderedEntries.Count; i++)
         {
             Entry entry = orderedEntries[i];
@@ -92,15 +56,21 @@ public class LeaderboardManager : MonoBehaviour
         return 0;
     }
 
-    private void UpdateScoreBoard(int currentScore)
+    private void UpdateScoreBoard()
     {
-        List<Entry> entries = new();
-        entries.AddRange(PlaceholderEntries);
-        entries.Add(new Entry(SaveManager.Instance.PlayerName, currentScore, playerIcon));
-        List<Entry> orderedEntries = entries.OrderByDescending(x => x.Score).ToList();
-
+        foreach (TMP_Text playerName in names)
+        {
+            playerName.transform.parent.gameObject.SetActive(false);
+        }
+        
+        List<Entry> orderedEntries = GetOrderedEntries();
         for (int i = 0; i < orderedEntries.Count; i++)
         {
+            if (names.Count - 1 < i)
+            {
+                break;
+            }
+            
             Entry entry = orderedEntries[i];
 
             TMP_Text playerName = names[i];
@@ -111,6 +81,8 @@ public class LeaderboardManager : MonoBehaviour
 
             Image profileIcon = profileIcons[i];
             profileIcon.sprite = entry.Icon;
+            
+            playerName.transform.parent.gameObject.SetActive(true);
         }
     }
 
@@ -119,5 +91,26 @@ public class LeaderboardManager : MonoBehaviour
         playerScore.text = GameManager.Instance.CurrentScore.ToString();
         playerRank.text = GetPlayerRank().ToString();
         userName.text = $"{SaveManager.Instance.PlayerName} - You";
+        playerIcon.sprite = IconManager.Instance.GetProfileIcon(SaveManager.Instance.PlayerName);
+    }
+
+    private List<Entry> GetOrderedEntries()
+    {
+        List<Entry> entries = new();
+        foreach (string username in SaveManager.Instance.GetAllUserNames())
+        {
+            string score = SaveManager.Instance.GetValueByUserName(SaveManager.Score, username);
+            int scoreNumber = 0;
+            if (score != string.Empty && int.TryParse(score, out int result))
+            {
+                scoreNumber = result;
+            }
+
+            Sprite icon = IconManager.Instance.GetProfileIcon(username);
+            entries.Add(new Entry(username, scoreNumber, icon));
+        }
+        
+        List<Entry> orderedEntries = entries.OrderByDescending(x => x.Score).ToList();
+        return orderedEntries;
     }
 }

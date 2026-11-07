@@ -21,9 +21,9 @@ public class IconManager : MonoBehaviour
         Instance = this;
     }
 
-    public Sprite GetProfileIcon()
+    public Sprite GetProfileIcon(string userName)
     {
-        string iconNumber = SaveManager.Instance.GetValueByUserName(SaveManager.ProfileIcon, SaveManager.Instance.PlayerName);
+        string iconNumber = SaveManager.Instance.GetValueByUserName(SaveManager.ProfileIcon, userName);
         if (iconNumber == string.Empty || !int.TryParse(iconNumber, out int result))
         {
             return profileIcons[0];
