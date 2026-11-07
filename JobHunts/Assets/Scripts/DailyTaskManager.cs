@@ -3,10 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using Object = System.Object;
 
 public class DailyTaskManager : MonoBehaviour
 {
+    private List<TaskLayout> entries;
+
     [SerializeField] private GameObject taskPrefab;
     [SerializeField] private Sprite completedActivityIcon;
     [SerializeField] private GameObject completedLine;
@@ -29,9 +30,28 @@ public class DailyTaskManager : MonoBehaviour
     [SerializeField] private Sprite completedPoints50;
     [SerializeField] private Sprite completedPoints25;
     
-    public static List<TaskLayout> Entries { get; private set; } = new();
+    public List<TaskLayout> Entries
+    {
+        get
+        {
+            if (entries != null)
+            {
+                return entries;
+            }
 
-    public static List<GameObject> CurrentEntries { get; private set; } = new();
+            entries = new List<TaskLayout>();
+            entries.Add(new TaskLayout(HuntsSubmitManager.ActivityType.ApplyJob, applyToJobIcon, points100Icon, completedPoints100));
+            entries.Add(new TaskLayout(HuntsSubmitManager.ActivityType.PortfolioUpdate, portfolioIcon, points50Icon, completedPoints50));
+            entries.Add(new TaskLayout(HuntsSubmitManager.ActivityType.CoffeeChat, coffeeIcon, points75Icon, completedPoints75));
+            entries.Add(new TaskLayout(HuntsSubmitManager.ActivityType.LinkedInConnection, linkedinIcon, points25Icon, completedPoints25));
+            return entries;
+        }
+        set => entries = value;
+    }
+
+    public List<GameObject> CurrentEntries { get; private set; } = new();
+    
+    public static DailyTaskManager Instance { get; private set; }
 
     public class TaskLayout
     {
@@ -54,7 +74,7 @@ public class DailyTaskManager : MonoBehaviour
         public bool IsCompleted;
     }
 
-    public static void CompleteTask(HuntsSubmitManager.ActivityType completedActivity)
+    public void CompleteTask(HuntsSubmitManager.ActivityType completedActivity)
     {
         foreach (TaskLayout task in Entries)
         {
@@ -68,12 +88,15 @@ public class DailyTaskManager : MonoBehaviour
         }
     }
 
-    public void Awake()
+    private void Awake()
     {
-        Entries.Add(new TaskLayout(HuntsSubmitManager.ActivityType.ApplyJob, applyToJobIcon, points100Icon, completedPoints100));
-        Entries.Add(new TaskLayout(HuntsSubmitManager.ActivityType.PortfolioUpdate, portfolioIcon, points50Icon, completedPoints50));
-        Entries.Add(new TaskLayout(HuntsSubmitManager.ActivityType.CoffeeChat, coffeeIcon, points75Icon, completedPoints75));
-        Entries.Add(new TaskLayout(HuntsSubmitManager.ActivityType.LinkedInConnection, linkedinIcon, points25Icon, completedPoints25));
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
     }
 
     public void OnEnable()

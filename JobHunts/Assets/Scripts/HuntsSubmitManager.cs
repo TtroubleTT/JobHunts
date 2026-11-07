@@ -24,6 +24,7 @@ public class HuntsSubmitManager : MonoBehaviour
     [SerializeField] private TMP_Text completedPoints;
     [SerializeField] private TMP_Text totalPoints;
     [SerializeField] private GameObject signOutButton;
+    [SerializeField] private DailyTaskManager dailyTaskManager;
     
     public int PointValue { get; set; }
     
@@ -107,7 +108,7 @@ public class HuntsSubmitManager : MonoBehaviour
         submitSection.SetActive(false);
         completedSection.SetActive(true);
         GameManager.Instance.PlaySuccess();
-        DailyTaskManager.CompleteTask(Activity);
+        dailyTaskManager.CompleteTask(Activity);
     }
 
     public static string EnumToString(ActivityType activity)
