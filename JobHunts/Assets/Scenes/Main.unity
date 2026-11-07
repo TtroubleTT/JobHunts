@@ -10891,8 +10891,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 92.5, y: 2.8}
-  m_SizeDelta: {x: 46.0575, y: 19.44}
+  m_AnchoredPosition: {x: 81.77344, y: 2.8}
+  m_SizeDelta: {x: 67.5107, y: 19.44}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1327368966
 CanvasRenderer:
@@ -11163,6 +11163,7 @@ MonoBehaviour:
   usernameInput: {fileID: 1249612733}
   passwordInput: {fileID: 1707481750}
   invalid: {fileID: 1815854494}
+  dailyTaskManager: {fileID: 2128516505}
 --- !u!114 &1330184553
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12925,7 +12926,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1639369561
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13609,7 +13610,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -60.3, y: -6.2798004}
+  m_AnchoredPosition: {x: -68, y: -6.2798004}
   m_SizeDelta: {x: 90.819, y: 21.7596}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1717325087
@@ -14106,8 +14107,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -77.91626, y: 23.2}
-  m_SizeDelta: {x: 71.2955, y: 36.8311}
+  m_AnchoredPosition: {x: -78.26196, y: 23.2}
+  m_SizeDelta: {x: 87.2399, y: 36.8311}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1810009974
 MonoBehaviour:
@@ -14414,7 +14415,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -16, y: 15.2}
+  m_AnchoredPosition: {x: -8, y: 15.2}
   m_SizeDelta: {x: 49.0599, y: 25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1817765192
@@ -16352,7 +16353,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2082728257
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16408,7 +16409,7 @@ MonoBehaviour:
   playerScore: {fileID: 1327368967}
   playerRank: {fileID: 76293213}
   userName: {fileID: 865143253}
-  playerIcon: {fileID: 0}
+  playerIcon: {fileID: 600515982}
 --- !u!1 &2086709814
 GameObject:
   m_ObjectHideFlags: 0
