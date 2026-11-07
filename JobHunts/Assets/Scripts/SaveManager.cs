@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class SaveManager : MonoBehaviour
 {
-    private const string PasswordKey = "Password";
+    public const string PasswordKey = "Password";
+    public const string ProfileDescription = "ProfileDescription";
     
     [SerializeField] private TMP_InputField usernameInput;
     [SerializeField] private TMP_InputField passwordInput;

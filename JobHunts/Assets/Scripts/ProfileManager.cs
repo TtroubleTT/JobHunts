@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class ProfileManager : MonoBehaviour
 {
+    private const string DefaultDescription = "Press edit profile to change me!";
+    
     [SerializeField] private LeaderboardManager leaderboardManager;
     [SerializeField] private TMP_Text pointsText;
     [SerializeField] private GameObject descriptionEntry;
@@ -26,6 +28,14 @@ public class ProfileManager : MonoBehaviour
         userNameText.text = SaveManager.Instance.PlayerName;
         pointsText.text = $"{GameManager.Instance.CurrentScore}";
         rankText.text = $"Rank #{leaderboardManager.GetPlayerRank()}";
+
+        string savedDescription = SaveManager.Instance.GetValueByUserName(SaveManager.ProfileDescription, SaveManager.Instance.PlayerName);
+        if (savedDescription == string.Empty)
+        {
+            savedDescription = DefaultDescription;
+        }
+
+        description.text = savedDescription;
     }
 
     public void OpenDescriptionEntry()
@@ -42,6 +52,7 @@ public class ProfileManager : MonoBehaviour
     public void Submit()
     {
         description.text = inputField.text;
+        SaveManager.Instance.SaveValueByUserName(SaveManager.ProfileDescription, SaveManager.Instance.PlayerName, inputField.text);
         descriptionEntry.SetActive(false);
     }
 }
