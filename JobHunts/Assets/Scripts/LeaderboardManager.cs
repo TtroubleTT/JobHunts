@@ -8,20 +8,25 @@ using UnityEngine.UI;
 
 public class LeaderboardManager : MonoBehaviour
 {
-    [Header("Profile Icons")]
-    [SerializeField] private Sprite playerIcon;
+    private List<Entry> placeholderEntries;
+    
+    [Header("Profile Icons")] [SerializeField]
+    private Sprite playerIcon;
+
     [SerializeField] private Sprite taylorIcon;
     [SerializeField] private Sprite laurenIcon;
     [SerializeField] private Sprite ameliaIcon;
     [SerializeField] private Sprite kyleIcon;
 
-    [Header("Section Setups")]
-    [SerializeField] private List<Image> profileIcons;
+    [Header("Section Setups")] [SerializeField]
+    private List<Image> profileIcons;
+
     [SerializeField] private List<TMP_Text> names;
     [SerializeField] private List<TMP_Text> scores;
 
-    [Header("Your Standing")] 
-    [SerializeField] private TMP_Text playerScore;
+    [Header("Your Standing")] [SerializeField]
+    private TMP_Text playerScore;
+
     [SerializeField] private TMP_Text playerRank;
     [SerializeField] private TMP_Text userName;
 
@@ -33,7 +38,7 @@ public class LeaderboardManager : MonoBehaviour
             Score = score;
             Icon = icon;
         }
-        
+
         public string Name;
 
         public Sprite Icon;
@@ -41,14 +46,22 @@ public class LeaderboardManager : MonoBehaviour
         public int Score;
     }
 
-    public List<Entry> PlaceholderEntries { get; private set; } = new();
-
-    public void Awake()
+    public List<Entry> PlaceholderEntries
     {
-        PlaceholderEntries.Add(new Entry("Taylor", 325, taylorIcon));
-        PlaceholderEntries.Add(new Entry("Lauren", 175, laurenIcon));
-        PlaceholderEntries.Add(new Entry("Amelia", 100, ameliaIcon));
-        PlaceholderEntries.Add(new Entry("Kyle", 50, kyleIcon));
+        get
+        {
+            if (placeholderEntries != null)
+            {
+                return placeholderEntries;
+            }
+
+            placeholderEntries = new List<Entry>();
+            placeholderEntries.Add(new Entry("Taylor", 325, taylorIcon));
+            placeholderEntries.Add(new Entry("Lauren", 175, laurenIcon));
+            placeholderEntries.Add(new Entry("Amelia", 100, ameliaIcon));
+            placeholderEntries.Add(new Entry("Kyle", 50, kyleIcon));
+            return placeholderEntries;
+        }
     }
 
     public void OnEnable()
