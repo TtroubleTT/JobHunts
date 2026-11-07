@@ -115,33 +115,37 @@ public class SaveManager : MonoBehaviour
     public void SaveValueByUserName(string key, string userName, string value)
     {
         string everything = PlayerPrefs.GetString(key, string.Empty);
-        string[] entries = Array.Empty<string>();
-        if (everything != string.Empty)
-        {
-            entries = everything.Split("), ");
-        }
+        string[] entries = everything == string.Empty
+            ? Array.Empty<string>()
+            : everything.Split("), ");
+
 
         bool found = false;
 
         for (int i = 0; i < entries.Length; i++)
         {
-            string cleaned = entries[i].Replace("(", "").Replace(")", "");
+            string cleaned = entries[i].Trim('(', ')');
             string[] parts = cleaned.Split(", ");
 
             if (parts[0] == userName)
             {
-                entries[i] = $"({userName}, {value})";
+                entries[i] = $"{userName}, {value}";
                 found = true;
                 break;
             }
+            
+            entries[i] = cleaned;
         }
 
         if (!found)
         {
-            entries = entries.Append($"({userName}, {value})").ToArray();
+            entries = entries.Append($"{userName}, {value}").ToArray();
         }
+        
+        string result = string.Join("), (", entries.Select(e => e.Trim('(', ')')));
+        result = $"({result})";
 
-        PlayerPrefs.SetString(key, string.Join(", ", entries));
+        PlayerPrefs.SetString(key, result);
         PlayerPrefs.Save();
     }
 
