@@ -8,6 +8,7 @@ public class SaveManager : MonoBehaviour
     public const string PasswordKey = "Password";
     public const string ProfileDescription = "ProfileDescription";
     public const string Score = "Score";
+    public const string ProfileIcon = "ProfileIcon";
     
     [SerializeField] private TMP_InputField usernameInput;
     [SerializeField] private TMP_InputField passwordInput;
