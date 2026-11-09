@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class PageSwitcher : MonoBehaviour
 {
     [SerializeField] private TMP_Text txt;
+    [SerializeField] private SaveManager saveManager;
     
     [Header("Pages")]
     [SerializeField] private GameObject homePage;
@@ -70,7 +71,7 @@ public class PageSwitcher : MonoBehaviour
         ranksPage.SetActive(false);
         profilePage.SetActive(false);
         navBar.SetActive(false);
-        SaveManager.Instance.ClearSignInInfo();
+        saveManager.ClearSignInInfo();
     }
 
     public void SetActiveSignOutPageOnly()
