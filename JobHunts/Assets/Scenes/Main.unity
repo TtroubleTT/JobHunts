@@ -11125,6 +11125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   txt: {fileID: 333305687}
+  saveManager: {fileID: 1330184552}
   homePage: {fileID: 491756964}
   tasksPage: {fileID: 1257530281}
   huntsPage: {fileID: 1464670356}
