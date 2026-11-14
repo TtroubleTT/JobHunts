@@ -13,13 +13,17 @@ public class ProfileManager : MonoBehaviour
     [SerializeField] private TMP_Text pointsText;
     [SerializeField] private GameObject descriptionEntry;
     [SerializeField] private GameObject iconChoosing;
+    [SerializeField] private GameObject bannerChoosing;
     [SerializeField] private TMP_InputField inputField;
     [SerializeField] private TMP_Text description;
     [SerializeField] private TMP_Text rankText;
     [SerializeField] private TMP_Text userNameText;
     [SerializeField] private Image profileIcon;
+    [SerializeField] private Image banner;
     [SerializeField] private GameObject iconChoicePrefab;
     [SerializeField] private Transform iconLayoutGroup;
+    [SerializeField] private GameObject bannerChoicePrefab;
+    [SerializeField] private Transform bannerLayoutGroup;
     
     public static ProfileManager Instance { get; private set; }
 
@@ -38,6 +42,7 @@ public class ProfileManager : MonoBehaviour
     {
         descriptionEntry.SetActive(false);
         iconChoosing.SetActive(false);
+        bannerChoosing.SetActive(false);
         
         if (GameManager.Instance == null)
         {
@@ -56,6 +61,7 @@ public class ProfileManager : MonoBehaviour
 
         description.text = savedDescription;
         profileIcon.sprite = IconManager.Instance.GetProfileIcon(SaveManager.Instance.PlayerName);
+        banner.sprite = IconManager.Instance.GetBanner(SaveManager.Instance.PlayerName);
     }
 
     public void OpenDescriptionEntry()
@@ -92,6 +98,34 @@ public class ProfileManager : MonoBehaviour
         profileIcon.sprite = IconManager.Instance.GetProfileIcon(SaveManager.Instance.PlayerName);
 
         foreach (Transform child in iconLayoutGroup)
+        {
+            Destroy(child.gameObject);
+        }
+    }
+    
+    public void OpenChooseBanner()
+    {
+        bannerChoosing.SetActive(true);
+
+        foreach (Sprite icon in IconManager.Instance.GetBanners())
+        {
+            GameObject gameObj = Instantiate(bannerChoicePrefab, bannerLayoutGroup);
+            if (!gameObj.TryGetComponent(out Image image))
+            {
+                Debug.Log("couldn't get image script from game object");
+                continue;
+            }
+
+            image.sprite = icon;
+        }
+    }
+
+    public void CloseChooseBanner()
+    {
+        bannerChoosing.SetActive(false);
+        banner.sprite = IconManager.Instance.GetBanner(SaveManager.Instance.PlayerName);
+
+        foreach (Transform child in bannerLayoutGroup)
         {
             Destroy(child.gameObject);
         }

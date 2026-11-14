@@ -7,6 +7,9 @@ public class IconManager : MonoBehaviour
 {
     [Header("Icons")]
     [SerializeField] private List<Sprite> profileIcons;
+
+    [Header("Banners")] 
+    [SerializeField] private List<Sprite> banners;
     
     public static IconManager Instance { get; private set; }
 
@@ -35,5 +38,21 @@ public class IconManager : MonoBehaviour
     public List<Sprite> GetProfileIcons()
     {
         return profileIcons;
+    }
+    
+    public Sprite GetBanner(string userName)
+    {
+        string bannerNumber = SaveManager.Instance.GetValueByUserName(SaveManager.Banner, userName);
+        if (bannerNumber == string.Empty || !int.TryParse(bannerNumber, out int result))
+        {
+            return banners[0];
+        }
+
+        return banners[Math.Clamp(result, 0, profileIcons.Count - 1)];
+    }
+
+    public List<Sprite> GetBanners()
+    {
+        return banners;
     }
 }
