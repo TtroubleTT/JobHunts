@@ -7,9 +7,11 @@ public class IconManager : MonoBehaviour
 {
     [Header("Icons")]
     [SerializeField] private List<Sprite> profileIcons;
+    [SerializeField] private List<int> profilePointThreshold;
 
     [Header("Banners")] 
     [SerializeField] private List<Sprite> banners;
+    [SerializeField] private List<int> bannerPointThreshold;
     
     public static IconManager Instance { get; private set; }
 
@@ -37,7 +39,18 @@ public class IconManager : MonoBehaviour
 
     public List<Sprite> GetProfileIcons()
     {
-        return profileIcons;
+        List<Sprite> icons = new();
+        for (int i = 0; i < profileIcons.Count; i++)
+        {
+            if (GameManager.Instance.CurrentScore < profilePointThreshold[i])
+            {
+                continue;
+            }
+            
+            icons.Add(profileIcons[i]);
+        }
+
+        return icons;
     }
     
     public Sprite GetBanner(string userName)
@@ -53,6 +66,17 @@ public class IconManager : MonoBehaviour
 
     public List<Sprite> GetBanners()
     {
-        return banners;
+        List<Sprite> filteredBanners = new();
+        for (int i = 0; i < banners.Count; i++)
+        {
+            if (GameManager.Instance.CurrentScore < bannerPointThreshold[i])
+            {
+                continue;
+            }
+            
+            filteredBanners.Add(banners[i]);
+        }
+
+        return filteredBanners;
     }
 }

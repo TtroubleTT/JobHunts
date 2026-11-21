@@ -11505,12 +11505,14 @@ MonoBehaviour:
   - {fileID: 21300000, guid: b04d1a2a1b8af344b94de35e4104f8ee, type: 3}
   - {fileID: 21300000, guid: ed5926ff01bd475418b8ee11adea1a05, type: 3}
   - {fileID: 21300000, guid: 46ff1012ef4685741bc875d4b5ce981f, type: 3}
+  profilePointThreshold: 000000000000000000000000320000006400000096000000c80000002c01000090010000f4010000
   banners:
   - {fileID: 21300000, guid: 6bef816660165ec44bd031026bc27e68, type: 3}
   - {fileID: 21300000, guid: ebab187bdc35f514582850f305106401, type: 3}
   - {fileID: 21300000, guid: 4cae7a1db5721e941b3f2c5cf2734263, type: 3}
   - {fileID: 21300000, guid: 5ce3115bf5162ea4ab439aa63bdc4be6, type: 3}
   - {fileID: 21300000, guid: ce0524ddc5dfac84aae084e7d687999e, type: 3}
+  bannerPointThreshold: 0000000064000000c80000002c010000f4010000
 --- !u!1 &1366006440
 GameObject:
   m_ObjectHideFlags: 0
